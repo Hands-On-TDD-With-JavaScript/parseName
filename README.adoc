@@ -46,3 +46,7 @@ Through this example we can see how TDD helps us with the following:
 
 * It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes.
 
+== Licensing Information
+
+See link:LICENSE.txt[LICENSE.txt].
+
