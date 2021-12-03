@@ -1,0 +1,48 @@
+= parseName - Hands-on TDD with JavaScript
+:toc: left
+:source-highlighter: pygments
+:pygments-css: class
+:icons: font
+:uri_group: https://gitlab.com/hands-on-tdd-with-javascript
+:name_group: Hands-On TDD with JavaScript
+:uri_repo_gitlab: https://gitlab.com/hands-on-tdd-with-javascript/parsename
+:uri_repo_github: https://github.com/Hands-On-TDD-With-JavaScript/parseName
+
+This repository is part of the link:{uri_group}[{name_group}].
+A hands-on series on practical Test Driven Development examples, concepts and motivation.
+
+[NOTE]
+====
+The link:{uri_repo_gitlab}[main repo is the one on Gitlab].
+The link:{uri_repo_github}[Github repo] is only a mirror.
+Discussion, issues, etc. should be happen on link:{uri_repo_gitlab}[Gitlab].
+====
+
+[NOTE]
+====
+Github doesn't do nice rendering of Asciidoctor (`.adoc`) files.
+Gitlab does a much better job at this.
+You are advised to read this text on link:{uri_repo_gitlab}[Gitlab].
+====
+
+== Intro
+
+This is the first example of the series.
+The goal is to _parse a persons first name_.
+Sounds easy, and it most likely _is_ easy.
+Yet, I have found this example to be a very good introduction to the topic of Test Driven Development.
+
+It allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
+
+Through this example we can see how TDD helps us with the following:
+
+* Helping us design and better understand a solution for a problem;
+
+* Tackle edge cases;
+
+* Document the range of inputs our functions (or methods) cover (the domain of a function);
+
+* It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine.
+
+* It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes.
+
