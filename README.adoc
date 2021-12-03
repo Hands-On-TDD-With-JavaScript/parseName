@@ -46,6 +46,49 @@ Through this example we can see how TDD helps us with the following:
 
 * It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes.
 
+== parseFirstName
+
+We are given an input which is supposed to contain a person's name.
+From that input, we should parse the first name out of it.
+
+[NOTE]
+====
+Some of these tests cases are required only because we are working with a dynamically-typed language, and would not be necessary for a statically typed language.
+====
+
+=== two-word strings
+
+Parse the first name out of a string that contains first and last name.
+Example inputs to outputs:
+
+----
+Ahsoka Tano    → Ahsoka
+Obi-Wan Kenobi → Obi-Wan
+----
+
+Note that “Obi-Wan” is 
+
+=== one-word strings
+
+Parse first name out of a string that contains only a single word.
+Example inputs to outputs:
+
+----
+Yoda    → Yoda
+Obi-Wan → Obi-Wan
+----
+
+=== three-or-more-word strings
+
+Parse first name out of a string that contains three or more words.
+Example inputs to outputs:
+
+----
+Padmé Amidala Naberrie                  → Padmé
+Albus Percival Wulfric Brian Dumbledore → Albus
+----
+
+
 == Licensing Information
 
 See link:LICENSE.txt[LICENSE.txt].
