@@ -51,6 +51,8 @@ Through this example we can see how TDD helps us with the following:
 We are given an input which is supposed to contain a person's name.
 From that input, we should parse the first name out of it.
 
+The idea is that we create a function that takes the name string, and returns the first name.
+
 [NOTE]
 ====
 Some of these tests cases are required only because we are working with a dynamically-typed language, and would not be necessary for a statically typed language.
@@ -66,7 +68,7 @@ Ahsoka Tano    → Ahsoka
 Obi-Wan Kenobi → Obi-Wan
 ----
 
-Note that “Obi-Wan” is 
+Note that “Obi-Wan” is
 
 === one-word strings
 
@@ -88,6 +90,43 @@ Padmé Amidala Naberrie                  → Padmé
 Albus Percival Wulfric Brian Dumbledore → Albus
 ----
 
+=== delimit by dash or underscore
+
+Now, our input does not come with space-saparated words only. Name parts may also be separated by a minus sign or underscore.
+
+----
+Ahsoka-Tano    → Ahsoka
+Aayla Secura   → Aayla
+Obi-Wan Kenobi → Obi
+----
+
+Should we conditionals to test for space, minus sign and underscore and split based on the result of the condition?
+
+[source,javascript,lineos]
+----
+if (name.includes(' ')) {
+  // Split at space.
+} else if (name.includes('-')) {
+  // Split at '-'.
+} else if (name.includes('_')) {
+  // Split at '_'.
+} else {
+  // None of ' ', '-', or '_'.
+}
+----
+
+=== configurable delimiter
+
+What if we have to allow our function to provide any character (or characters) as a delimiter? What if names come in a tab-separated or comma-separated.
+
+It is clear by now that the conditionals do not scale, and that we probably need a second parameter to specify the delimiter.
+But will we have to search through the code base and change all the existing uses of `parseFirstName`‽
+
+----
+Albus;Percival;Wulfric;Brian;Dumbledore → Albus
+Ahsoka\tTano                            → Ahsoka
+Aayla\nSecura                           → Aayla
+----
 
 == Licensing Information
 
