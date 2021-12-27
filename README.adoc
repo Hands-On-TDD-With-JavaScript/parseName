@@ -8,8 +8,7 @@
 :uri_repo_gitlab: https://gitlab.com/hands-on-tdd-with-javascript/parsename
 :uri_repo_github: https://github.com/Hands-On-TDD-With-JavaScript/parseName
 
-This repository is part of the link:{uri_group}[{name_group}].
-A hands-on series on practical Test Driven Development examples, concepts and motivation.
+This repository is part of the link:{uri_group}[{name_group}] series on practical Test Driven Development, which focus on concepts, motivation, practical examples and general tips.
 
 [NOTE]
 ====
@@ -28,23 +27,26 @@ You are advised to read this text on link:{uri_repo_gitlab}[Gitlab].
 == Intro
 
 This is the first example of the series.
-The goal is to _parse a persons first name_.
+The goal is to _parse (or extract) a person's first name_ from a given input.
 Sounds easy, and it most likely _is_ easy.
-Yet, I have found this example to be a very good introduction to the topic of Test Driven Development.
+Yet, I have found this example to be a very good introduction to the topic of Test Driven Development (for reasons that become clear as we progress).
 
 It allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
 
-Through this example we can see how TDD helps us with the following:
+Through this example we can see how TDD offer at least these benefits:
 
-* Helping us design and better understand a solution for a problem;
+* Help us design and better understand a solution for a problem;
 
-* Tackle edge cases;
+* Helps us identify and tackle edge cases;
 
-* Document the range of inputs our functions (or methods) cover (the domain of a function);
+* Document the set of inputs our functions (or methods) accept (the domain of a function);
 
-* It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine.
+* It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine;
 
-* It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes.
+* It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes;
+
+This first example is *not* meant to be a tutorial on the syntax of one particular language or the API of one particular library or framework.
+The goal cover the basic thought process — and we all know it: thought works 💪 (pun intended) — when designing and implementing code.
 
 == parseFirstName
 

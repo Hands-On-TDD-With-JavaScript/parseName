@@ -43,6 +43,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   guard-asciidoctor
@@ -51,4 +52,4 @@ DEPENDENCIES
   rb-inotify (~> 0.9)
 
 BUNDLED WITH
-   2.2.15
+   2.2.33
