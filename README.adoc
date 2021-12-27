@@ -29,17 +29,17 @@ You are advised to read this text on link:{uri_repo_gitlab}[Gitlab].
 This is the first example of the series.
 The goal is to _parse (or extract) a person's first name_ from a given input.
 Sounds easy, and it most likely _is_ easy.
-Yet, I have found this example to be a very good introduction to the topic of Test Driven Development (for reasons that become clear as we progress).
+Yet, I have found this example to be a reasonably good introduction to the topic of Test Driven Development (for reasons that will become clear as we progress).
 
-It allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
+In short, it allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
 
 Through this example we can see how TDD offer at least these benefits:
 
-* Help us design and better understand a solution for a problem;
+* It helps us design and better understand a solution for a problem;
 
-* Helps us identify and tackle edge cases;
+* It helps us identify and tackle edge cases;
 
-* Document the set of inputs our functions (or methods) accept (the domain of a function);
+* It helps us think about and document footnote:[Tests are documentation too!] the set of inputs our functions (or methods) accept (the domain of a function);
 
 * It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine;
 
@@ -63,7 +63,6 @@ Some of these tests cases are required only because we are working with a dynami
 === two-word strings
 
 Parse the first name out of a string that contains first and last name.
-Example inputs to outputs:
 
 ----
 Ahsoka Tano    → Ahsoka
@@ -75,7 +74,6 @@ Note that “Obi-Wan” is
 === one-word strings
 
 Parse first name out of a string that contains only a single word.
-Example inputs to outputs:
 
 ----
 Yoda    → Yoda
@@ -85,7 +83,6 @@ Obi-Wan → Obi-Wan
 === three-or-more-word strings
 
 Parse first name out of a string that contains three or more words.
-Example inputs to outputs:
 
 ----
 Padmé Amidala Naberrie                  → Padmé
@@ -102,7 +99,8 @@ Aayla Secura   → Aayla
 Obi-Wan Kenobi → Obi
 ----
 
-Should we conditionals to test for space, minus sign and underscore and split based on the result of the condition?
+Should we use conditionals to test for space, minus sign and underscore and split based on the result of the condition?
+Perhaps switch this to a switch case?
 
 [source,javascript,lineos]
 ----
@@ -119,7 +117,8 @@ if (name.includes(' ')) {
 
 === configurable delimiter
 
-What if we have to allow our function to provide any character (or characters) as a delimiter? What if names come in a tab-separated or comma-separated.
+What if we have to allow our function to provide any character (or characters) as a delimiter?
+What if names are provided as tab-separated or comma-separated strings?
 
 It is clear by now that the conditionals do not scale, and that we probably need a second parameter to specify the delimiter.
 But will we have to search through the code base and change all the existing uses of `parseFirstName`‽
