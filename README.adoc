@@ -17,13 +17,6 @@ The link:{uri_repo_github}[Github repo] is only a mirror.
 Discussion, issues, etc. should be happen on link:{uri_repo_gitlab}[Gitlab].
 ====
 
-[NOTE]
-====
-Github doesn't do nice rendering of Asciidoctor (`.adoc`) files.
-Gitlab does a much better job at this.
-You are advised to read this text on link:{uri_repo_gitlab}[Gitlab].
-====
-
 == Intro
 
 This is the first example of the series.
