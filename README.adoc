@@ -93,7 +93,7 @@ Obi-Wan Kenobi → Obi
 ----
 
 Should we use conditionals to test for space, minus sign and underscore and split based on the result of the condition?
-Perhaps switch this to a switch case?
+Perhaps replace the _if then else_ condition with a _switch case_?
 
 [source,javascript,lineos]
 ----
