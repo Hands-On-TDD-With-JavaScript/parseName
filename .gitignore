@@ -1,3 +1,5 @@
 #
-# Nothing so far 😅.
+# .gitignore
 #
+
+node_modules

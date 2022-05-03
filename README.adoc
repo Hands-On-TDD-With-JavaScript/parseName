@@ -59,7 +59,6 @@ Parse the first name out of a string that contains first and last name.
 
 ----
 Ahsoka Tano    → Ahsoka
-Obi-Wan Kenobi → Obi-Wan
 ----
 
 Note that “Obi-Wan” is
