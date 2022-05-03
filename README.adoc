@@ -61,15 +61,12 @@ Parse the first name out of a string that contains first and last name.
 Ahsoka Tano    → Ahsoka
 ----
 
-Note that “Obi-Wan” is
-
 === one-word strings
 
 Parse first name out of a string that contains only a single word.
 
 ----
 Yoda    → Yoda
-Obi-Wan → Obi-Wan
 ----
 
 === three-or-more-word strings
@@ -87,8 +84,9 @@ Now, our input does not come with space-saparated words only. Name parts may als
 
 ----
 Ahsoka-Tano    → Ahsoka
-Aayla Secura   → Aayla
-Obi-Wan Kenobi → Obi
+Aayla-Secura   → Aayla
+Ahsoka_Tano    → Ahsoka
+Aayla_Secura   → Aayla
 ----
 
 Should we use conditionals to test for space, minus sign and underscore and split based on the result of the condition?
