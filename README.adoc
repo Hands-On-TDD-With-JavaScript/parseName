@@ -1,4 +1,4 @@
-= parseName - Hands-on TDD with JavaScript
+= parseFirstName() :: Hands-on TDD with JavaScript
 :toc: left
 :source-highlighter: pygments
 :pygments-css: class
@@ -8,7 +8,8 @@
 :uri_repo_gitlab: https://gitlab.com/hands-on-tdd-with-javascript/parsename
 :uri_repo_github: https://github.com/Hands-On-TDD-With-JavaScript/parseName
 
-This repository is part of the link:{uri_group}[{name_group}] series on practical Test Driven Development, which focus on concepts, motivation, practical examples and general tips.
+This repository is part of the link:{uri_group}[{name_group}] series on practical test driven development (TDD).
+We try to focus on _practical examples_ based on testing and TDD concepts and ideas.
 
 [NOTE]
 ====
@@ -22,38 +23,34 @@ Discussion, issues, etc. should be happen on link:{uri_repo_gitlab}[Gitlab].
 This is the first example of the series.
 The goal is to _parse (or extract) a person's first name_ from a given input.
 Sounds easy, and it most likely _is_ easy.
-Yet, I have found this example to be a reasonably good introduction to the topic of Test Driven Development (for reasons that will become clear as we progress).
+Yet, I have found this example to be a reasonably good introduction to the topic of TDD (for reasons that will become clear as we progress).
 
 In short, it allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
 
 Through this example we can see how TDD offer at least these benefits:
 
 * It helps us design and better understand a solution for a problem;
-
 * It helps us identify and tackle edge cases;
-
 * It helps us think about and document footnote:[Tests are documentation too!] the set of inputs our functions (or methods) accept (the domain of a function);
-
 * It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine;
-
-* It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes;
+* It encourages refactoring because it relives developers from the burden of manually testing that everything still works fine after code changes;
 
 This first example is *not* meant to be a tutorial on the syntax of one particular language or the API of one particular library or framework.
-The goal cover the basic thought process — and we all know it: thought works 💪 (pun intended) — when designing and implementing code.
+The goal is to cover the basic thought process (because _thought works_ 💪) and get some initial mental model on _how to actually write code using TDD_ — and we all know it: thought works 💪 (pun intended) — when designing and implementing code.
 
-== parseFirstName
+== parseFirstName()
 
 We are given an input which is supposed to contain a person's name.
 From that input, we should parse the first name out of it.
 
-The idea is that we create a function that takes the name string, and returns the first name.
+The idea is that we create a function that takes the string which is supposed to be a person's name, and returns the first name.
 
 [NOTE]
 ====
 Some of these tests cases are required only because we are working with a dynamically-typed language, and would not be necessary for a statically typed language.
 ====
 
-=== two-word strings
+=== Two-word strings
 
 Parse the first name out of a string that contains first and last name.
 
@@ -61,7 +58,7 @@ Parse the first name out of a string that contains first and last name.
 Ahsoka Tano    → Ahsoka
 ----
 
-=== one-word strings
+=== One-word strings
 
 Parse first name out of a string that contains only a single word.
 
@@ -69,7 +66,7 @@ Parse first name out of a string that contains only a single word.
 Yoda    → Yoda
 ----
 
-=== three-or-more-word strings
+=== Three-or-more-word strings
 
 Parse first name out of a string that contains three or more words.
 
@@ -78,9 +75,10 @@ Padmé Amidala Naberrie                  → Padmé
 Albus Percival Wulfric Brian Dumbledore → Albus
 ----
 
-=== delimit by dash or underscore
+=== Delimit by dash or underscore
 
-Now, our input does not come with space-saparated words only. Name parts may also be separated by a minus sign or underscore.
+Now, our input does not come with space-separated words only.
+Name parts may also be separated by a minus sign or underscore.
 
 ----
 Ahsoka-Tano    → Ahsoka
@@ -105,13 +103,17 @@ if (name.includes(' ')) {
 }
 ----
 
-=== configurable delimiter
+=== Configurable delimiter
 
 What if we have to allow our function to provide any character (or characters) as a delimiter?
 What if names are provided as tab-separated or comma-separated strings?
 
 It is clear by now that the conditionals do not scale, and that we probably need a second parameter to specify the delimiter.
-But will we have to search through the code base and change all the existing uses of `parseFirstName`‽
+
+After the tests are green, maybe refactor to use regex instead?
+
+But will we have to search through the codebase and change all the existing uses of `parseFirstName()`‽
+Or we can use some technique or syntax feature of the programming language to not require changes _everywhere_?
 
 ----
 Albus;Percival;Wulfric;Brian;Dumbledore → Albus

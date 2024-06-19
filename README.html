@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>parseName - Hands-on TDD with JavaScript</title>
+<title>parseFirstName() :: Hands-on TDD with JavaScript</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -516,18 +516,18 @@ pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>parseName - Hands-on TDD with JavaScript</h1>
+<h1>parseFirstName() :: Hands-on TDD with JavaScript</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_intro">Intro</a></li>
-<li><a href="#_parsefirstname">parseFirstName</a>
+<li><a href="#_parsefirstname">parseFirstName()</a>
 <ul class="sectlevel2">
-<li><a href="#_two_word_strings">two-word strings</a></li>
-<li><a href="#_one_word_strings">one-word strings</a></li>
-<li><a href="#_three_or_more_word_strings">three-or-more-word strings</a></li>
-<li><a href="#_delimit_by_dash_or_underscore">delimit by dash or underscore</a></li>
-<li><a href="#_configurable_delimiter">configurable delimiter</a></li>
+<li><a href="#_two_word_strings">Two-word strings</a></li>
+<li><a href="#_one_word_strings">One-word strings</a></li>
+<li><a href="#_three_or_more_word_strings">Three-or-more-word strings</a></li>
+<li><a href="#_delimit_by_dash_or_underscore">Delimit by dash or underscore</a></li>
+<li><a href="#_configurable_delimiter">Configurable delimiter</a></li>
 </ul>
 </li>
 <li><a href="#_licensing_information">Licensing Information</a></li>
@@ -538,7 +538,8 @@ pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This repository is part of the <a href="https://gitlab.com/hands-on-tdd-with-javascript">Hands-On TDD with JavaScript</a> series on practical Test Driven Development, which focus on concepts, motivation, practical examples and general tips.</p>
+<p>This repository is part of the <a href="https://gitlab.com/hands-on-tdd-with-javascript">Hands-On TDD with JavaScript</a> series on practical test driven development (TDD).
+We try to focus on <em>practical examples</em> based on testing and TDD concepts and ideas.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -565,7 +566,7 @@ Discussion, issues, etc. should be happen on <a href="https://gitlab.com/hands-o
 <p>This is the first example of the series.
 The goal is to <em>parse (or extract) a person&#8217;s first name</em> from a given input.
 Sounds easy, and it most likely <em>is</em> easy.
-Yet, I have found this example to be a reasonably good introduction to the topic of Test Driven Development (for reasons that will become clear as we progress).</p>
+Yet, I have found this example to be a reasonably good introduction to the topic of TDD (for reasons that will become clear as we progress).</p>
 </div>
 <div class="paragraph">
 <p>In short, it allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.</p>
@@ -588,25 +589,25 @@ Yet, I have found this example to be a reasonably good introduction to the topic
 <p>It enables us to move forward adding more features with free regression tests to assure new code does not break things that are already working fine;</p>
 </li>
 <li>
-<p>It encourages refactoring because it relives developers from the burden of manually testing everything still works fine after code changes;</p>
+<p>It encourages refactoring because it relives developers from the burden of manually testing that everything still works fine after code changes;</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>This first example is <strong>not</strong> meant to be a tutorial on the syntax of one particular language or the API of one particular library or framework.
-The goal cover the basic thought process — and we all know it: thought works 💪 (pun intended) — when designing and implementing code.</p>
+The goal is to cover the basic thought process (because <em>thought works</em> 💪) and get some initial mental model on <em>how to actually write code using TDD</em> — and we all know it: thought works 💪 (pun intended) — when designing and implementing code.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parsefirstname">parseFirstName</h2>
+<h2 id="_parsefirstname">parseFirstName()</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We are given an input which is supposed to contain a person&#8217;s name.
 From that input, we should parse the first name out of it.</p>
 </div>
 <div class="paragraph">
-<p>The idea is that we create a function that takes the name string, and returns the first name.</p>
+<p>The idea is that we create a function that takes the string which is supposed to be a person&#8217;s name, and returns the first name.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -623,34 +624,29 @@ From that input, we should parse the first name out of it.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_two_word_strings">two-word strings</h3>
+<h3 id="_two_word_strings">Two-word strings</h3>
 <div class="paragraph">
 <p>Parse the first name out of a string that contains first and last name.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Ahsoka Tano    → Ahsoka
-Obi-Wan Kenobi → Obi-Wan</pre>
+<pre>Ahsoka Tano    → Ahsoka</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Note that “Obi-Wan” is</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_one_word_strings">one-word strings</h3>
+<h3 id="_one_word_strings">One-word strings</h3>
 <div class="paragraph">
 <p>Parse first name out of a string that contains only a single word.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Yoda    → Yoda
-Obi-Wan → Obi-Wan</pre>
+<pre>Yoda    → Yoda</pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_three_or_more_word_strings">three-or-more-word strings</h3>
+<h3 id="_three_or_more_word_strings">Three-or-more-word strings</h3>
 <div class="paragraph">
 <p>Parse first name out of a string that contains three or more words.</p>
 </div>
@@ -662,15 +658,17 @@ Albus Percival Wulfric Brian Dumbledore → Albus</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delimit_by_dash_or_underscore">delimit by dash or underscore</h3>
+<h3 id="_delimit_by_dash_or_underscore">Delimit by dash or underscore</h3>
 <div class="paragraph">
-<p>Now, our input does not come with space-saparated words only. Name parts may also be separated by a minus sign or underscore.</p>
+<p>Now, our input does not come with space-separated words only.
+Name parts may also be separated by a minus sign or underscore.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>Ahsoka-Tano    → Ahsoka
-Aayla Secura   → Aayla
-Obi-Wan Kenobi → Obi</pre>
+Aayla-Secura   → Aayla
+Ahsoka_Tano    → Ahsoka
+Aayla_Secura   → Aayla</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -701,14 +699,20 @@ Perhaps replace the <em>if then else</em> condition with a <em>switch case</em>?
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configurable_delimiter">configurable delimiter</h3>
+<h3 id="_configurable_delimiter">Configurable delimiter</h3>
 <div class="paragraph">
 <p>What if we have to allow our function to provide any character (or characters) as a delimiter?
 What if names are provided as tab-separated or comma-separated strings?</p>
 </div>
 <div class="paragraph">
-<p>It is clear by now that the conditionals do not scale, and that we probably need a second parameter to specify the delimiter.
-But will we have to search through the code base and change all the existing uses of <code>parseFirstName</code>‽</p>
+<p>It is clear by now that the conditionals do not scale, and that we probably need a second parameter to specify the delimiter.</p>
+</div>
+<div class="paragraph">
+<p>After the tests are green, maybe refactor to use regex instead?</p>
+</div>
+<div class="paragraph">
+<p>But will we have to search through the codebase and change all the existing uses of <code>parseFirstName()</code>‽
+Or we can use some technique or syntax feature of the programming language to not require changes <em>everywhere</em>?</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -737,7 +741,7 @@ Aayla\nSecura                           → Aayla</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-29 10:42:01 -0300
+Last updated 2024-06-19 07:48:25 -0300
 </div>
 </div>
 </body>
