@@ -23,7 +23,12 @@ Discussion, issues, etc. should be happen on link:{uri_repo_gitlab}[Gitlab].
 This is the first example of the series.
 The goal is to _parse (or extract) a person's first name_ from a given input.
 Sounds easy, and it most likely _is_ easy.
-Yet, I have found this example to be a reasonably good introduction to the topic of TDD (for reasons that will become clear as we progress).
+Yet, I have found this example to be a reasonably good introduction to the topic of TDD because it brings to light a few important things:
+
+- We use tests to help design the implementation of new requirements.
+- Having passing tests allows us to refactor with confidence (an old TDD cliche but very true).
+- Existing tests work as regression tests when covering new requirements and edge cases.
+- Test descriptions serve as documentation and specification on the features in question.
 
 In short, it allows the discussion of several concepts and ideas that are useful for any other, more complex situation to come when doing TDD.
 
