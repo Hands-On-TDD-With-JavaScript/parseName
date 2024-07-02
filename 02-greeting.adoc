@@ -1,0 +1,37 @@
+= 02 Greeting
+:favicon: https://fernandobasso.dev/cmdline.png
+:icons: font
+:sectlinks:
+:sectnums!:
+:toclevels: 6
+:toc: left
+:source-highlighter: highlight.js
+:experimental:
+:imagesdir: __assets
+
+== Intro
+
+Based on example 1, we'll now use that function internally in another function to create a “greeting” message to a user.
+
+We'll create a function `greet()` that takes a string containing a user's name.
+We'll pass that name to `parseFirstName()`, and return a greeting message like “Hello, <firstName>!”.
+
+[source,text]
+----
+parseFirstName :: string -> string
+         greet :: string -> string
+----
+
+== Test cases
+
+Should we test the fact that `greet()` is passing the person's full name to `parseFirstName()`?
+Probably not, because that function has its own tests and has no side effects.
+We can trust it will do the right thing.
+
+We'll test that `greet()` will return the correct result.
+If, in testing `greet()` we mess up the correct usage of `parseFirstName()`, `greet()` would not pass the tests in the first place as the result would be incorrect.
+
+Should we mock `parseFirstName()` with some hard-coded result specific for our tests?
+Probably not for this scenario.
+Again, `parseFirstName()` is used in a simple way inside `greet()`, and is a pure function.
+In this case, we can let `greet()` exercise the real `parseFirstName()`.
